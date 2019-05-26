@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+@import 'main-palette.scss';
+
+$main-light-primary: $palette-primary;
+$main-light-accent: $palette-accent;
+$main-light-warn: $palette-warn;
+$main-light-theme: mat-light-theme($main-light-primary, $main-light-accent, $main-light-warn);
+
+@include angular-material-theme($main-light-theme);

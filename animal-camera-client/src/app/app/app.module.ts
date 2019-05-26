@@ -7,7 +7,10 @@ import { ConnectionService } from '../shared/services/connection.service';
 import { ConnectionStore } from '../shared/stores/connection.store';
 import { ConnectionGuard } from '../shared/guards/ connection.guard';
 import { MaterialModule } from '../shared/modules/material.module';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -15,6 +18,9 @@ import { MaterialModule } from '../shared/modules/material.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
     MaterialModule,
     AppRoutingModule,
     CameraModule
@@ -22,7 +28,8 @@ import { MaterialModule } from '../shared/modules/material.module';
   providers: [
     ConnectionService,
     ConnectionStore,
-    ConnectionGuard
+    ConnectionGuard,
+    CookieService 
   ],
   bootstrap: [AppComponent]
 })
