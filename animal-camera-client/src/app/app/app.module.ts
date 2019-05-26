@@ -6,6 +6,7 @@ import { CameraModule } from '../camera/camera.module';
 import { ConnectionService } from '../shared/services/connection.service';
 import { ConnectionStore } from '../shared/stores/connection.store';
 import { ConnectionGuard } from '../shared/guards/ connection.guard';
+import { MaterialModule } from '../shared/modules/material.module';
 
 
 @NgModule({
@@ -14,7 +15,7 @@ import { ConnectionGuard } from '../shared/guards/ connection.guard';
   ],
   imports: [
     BrowserModule,
-
+    MaterialModule,
     AppRoutingModule,
     CameraModule
   ],
