@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { Device } from '../models/device';
 
 @Injectable()
 export class ConnectionStore {
 
   private _address: BehaviorSubject<string>;
   private _connected: BehaviorSubject<boolean>;
+  private _device: BehaviorSubject<Device>;
 
   constructor() {
     this._address = new BehaviorSubject<string>(null);
     this._connected = new BehaviorSubject<boolean>(null);
+    this._device = new BehaviorSubject<Device>(null);
   }
 
   get address(): Observable<string> {
@@ -20,8 +23,13 @@ export class ConnectionStore {
     return this.getConnectionStatusAsObservable(this._connected);
   }
 
-  updateConnectionStatus(address: string, status: boolean) {
+  get device(): Observable<Device> {
+    return this.getDeviceAsObservable(this._device);
+  }
+
+  updateConnectionStatus(address: string, device:Device, status: boolean) {
     this._address.next(address);
+    this._device.next(device);
     this._connected.next(status);
   }
 
@@ -33,4 +41,7 @@ export class ConnectionStore {
     return new Observable(fn => subject.subscribe(fn));
   }
 
+  private getDeviceAsObservable(subject: Subject<Device>): Observable<Device> {
+    return new Observable(fn => subject.subscribe(fn));
+  }
 }

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { FormGroup, FormControl } from '@angular/forms';
 import { ConnectionService } from '../../../shared/services/connection.service';
 import { ConnectionStore } from '../../../shared/stores/connection.store';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'camera-connect',
@@ -44,12 +44,13 @@ export class ConnectComponent implements OnInit {
 
     console.log("Pinging " + combinedAddress + " address...");
 
-    this.connectionService.pingDevice(combinedAddress).subscribe(result => {
-      console.log(result);
+    this.connectionService.pingDevice(combinedAddress).subscribe(device => {
+      console.log("Received following device information:");
+      console.log(device);
       this.cookieService.set('address', address);
       this.cookieService.set('port', port);
 
-      this.connectionStore.updateConnectionStatus(combinedAddress, true);
+      this.connectionStore.updateConnectionStatus(combinedAddress, device, true);
       this.router.navigate(['/camera/info']);
     },
       error => {
