@@ -9,6 +9,6 @@ export class ConnectionService {
   constructor(protected http: HttpClient) { }
 
   pingDevice(address: string): Observable<string> {
-    return this.http.get<string>(address + '/ping');
+    return this.http.get<string>('http://' + address + '/ping');
   }
 }
