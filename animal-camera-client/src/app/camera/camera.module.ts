@@ -8,8 +8,10 @@ import { MaterialModule } from '../shared/modules/material.module';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DeviceComponent } from './components/device/device.component';
-import { FeedComponent } from './components/feed/feed.component';
+
 import { ActionsComponent } from './components/actions/actions.component';
+import { RecentComponent } from './components/recent/recent.component';
+import { EncounterListComponent } from './components/encounter-list/encounter-list.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,9 @@ import { ActionsComponent } from './components/actions/actions.component';
     ConnectComponent,
     InformationComponent,
     DeviceComponent,
-    FeedComponent,
-    ActionsComponent
+    RecentComponent,
+    ActionsComponent,
+    EncounterListComponent
   ],
   imports: [
     CommonModule,
