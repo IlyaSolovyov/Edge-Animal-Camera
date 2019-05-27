@@ -1,16 +1,17 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './components/app/app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CookieService } from 'ngx-cookie-service';
 import { CameraModule } from '../camera/camera.module';
-import { ConnectionService } from '../shared/services/connection.service';
-import { ConnectionStore } from '../shared/stores/connection.store';
 import { ConnectionGuard } from '../shared/guards/ connection.guard';
 import { MaterialModule } from '../shared/modules/material.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { CookieService } from 'ngx-cookie-service';
+import { ConnectionService } from '../shared/services/connection.service';
+import { DetectionService } from '../shared/services/detection.service';
+import { ConnectionStore } from '../shared/stores/connection.store';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './components/app/app.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CookieService } from 'ngx-cookie-service';
   ],
   providers: [
     ConnectionService,
+    DetectionService,
     ConnectionStore,
     ConnectionGuard,
     CookieService 

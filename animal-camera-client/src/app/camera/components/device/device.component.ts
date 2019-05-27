@@ -14,16 +14,11 @@ export class DeviceComponent {
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
 
-
-  @ViewChild(MatPaginator)
-  paginator: MatPaginator;
-
   dataSource: MatTableDataSource<string>;
   displayedColumns: string[] = ["class"];
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource(this.device.supportedClasses);
-    this.dataSource.paginator = this.paginator;
     this.dataSource.paginator = this.paginator;
   }
 
