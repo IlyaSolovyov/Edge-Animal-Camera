@@ -1,14 +1,16 @@
 <div class="container">
   <div class="camera-container">
-    <camera-device>
+    <camera-device [device]="connectionStore.device | async">
 
     </camera-device>
   </div>
+  <mat-divider></mat-divider>
   <div class="feed-container">
     <camera-feed>
 
     </camera-feed>
   </div>
+  <mat-divider></mat-divider>
   <div class="actions-container">
     <camera-actions>
 
