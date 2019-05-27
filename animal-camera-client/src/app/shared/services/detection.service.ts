@@ -8,7 +8,7 @@ export class DetectionService {
 
   constructor(protected http: HttpClient) { }
 
-  getRecentEncounters(): Observable<Encounter> {
-    return of([]);
+  getRecentEncounters(address: string): Observable<Encounter[]> {
+    return this.http.get<Encounter[]>('http://' + address + '/encounters/recent');
   }
 }

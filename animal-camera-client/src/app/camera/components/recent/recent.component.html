@@ -1,4 +1,4 @@
 <div class="container">
   <h1>Most recent encounters</h1>
-  <camera-encounter-list [encounters] ="this.detectionService.getRecentEncounters() | async"></camera-encounter-list>
+  <camera-encounter-list [(encounters)] ="this.encounters"></camera-encounter-list>
 </div>
