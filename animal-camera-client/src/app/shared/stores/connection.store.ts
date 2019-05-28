@@ -31,7 +31,7 @@ export class ConnectionStore {
   updateConnectionMode(address: string, device:Device, connectionMode: string) {
     this._address.next(address);
     this._device.next(device);
-    this._connectionMode.next(status);
+    this._connectionMode.next(connectionMode);
   }
 
   private getAddressAsObservable(subject: Subject<string>): Observable<string> {
