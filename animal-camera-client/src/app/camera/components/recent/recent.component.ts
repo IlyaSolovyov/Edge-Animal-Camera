@@ -48,12 +48,12 @@ export class RecentComponent implements OnInit {
 
   getDemoEncounters(): Encounter[] {
     let testDetection1: Detection = new Detection(1, "Test Class 1", 1);
-    let testDetection2: Detection = new Detection(2, "Test Class 1", 2);
-    let testDetection3: Detection = new Detection(3, "Test Class 1", 3);
-    let testDetection4: Detection = new Detection(4, "Test Class 1", 4);
-    let testDetection5: Detection = new Detection(5, "Test Class 2", 1);
-    let testDetection6: Detection = new Detection(6, "Test Class 2", 2);
-    let testDetection7: Detection = new Detection(7, "Test Class 2", 3);
+    let testDetection2: Detection = new Detection(2, "Test Class 2", 3);
+    let testDetection3: Detection = new Detection(3, "Test Class 1", 2);
+    let testDetection4: Detection = new Detection(4, "Test Class 2", 2);
+    let testDetection5: Detection = new Detection(5, "Test Class 1", 3);
+    let testDetection6: Detection = new Detection(6, "Test Class 2", 1);
+    let testDetection7: Detection = new Detection(7, "Test Class 1", 3);
 
     let testEncounter1: Encounter = new Encounter(1, new Date(), [testDetection1, testDetection2]);
     let testEncounter2: Encounter = new Encounter(2, new Date(), [testDetection3, testDetection4]);
