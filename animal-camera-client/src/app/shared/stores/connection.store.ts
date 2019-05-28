@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Device } from '../models/device';
+import { ConnectionMode } from '../models/connection-mode';
 
 @Injectable()
 export class ConnectionStore {
 
   private _address: BehaviorSubject<string>;
-  private _connected: BehaviorSubject<boolean>;
+  private _connectionMode: BehaviorSubject<string>;
   private _device: BehaviorSubject<Device>;
 
   constructor() {
     this._address = new BehaviorSubject<string>(null);
-    this._connected = new BehaviorSubject<boolean>(null);
+    this._connectionMode = new BehaviorSubject<string>(ConnectionMode.NotConnected);
     this._device = new BehaviorSubject<Device>(null);
   }
 
@@ -19,25 +20,25 @@ export class ConnectionStore {
     return this.getAddressAsObservable(this._address);
   }
 
-  get connected(): Observable<boolean> {
-    return this.getConnectionStatusAsObservable(this._connected);
+  get connectionMode(): Observable<string> {
+    return this.getConnectionModeAsObservable(this._connectionMode);
   }
 
   get device(): Observable<Device> {
     return this.getDeviceAsObservable(this._device);
   }
 
-  updateConnectionStatus(address: string, device:Device, status: boolean) {
+  updateConnectionMode(address: string, device:Device, connectionMode: string) {
     this._address.next(address);
     this._device.next(device);
-    this._connected.next(status);
+    this._connectionMode.next(status);
   }
 
   private getAddressAsObservable(subject: Subject<string>): Observable<string> {
     return new Observable(fn => subject.subscribe(fn));
   }
 
-  private getConnectionStatusAsObservable(subject: Subject<boolean>): Observable<boolean> {
+  private getConnectionModeAsObservable(subject: Subject<string>): Observable<string> {
     return new Observable(fn => subject.subscribe(fn));
   }
 

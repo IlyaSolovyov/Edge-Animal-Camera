@@ -13,13 +13,12 @@ const routes: Routes = [
     path: 'camera', component: CameraComponent, children:
       [
         { path: '', redirectTo: 'info', pathMatch: 'full' },
-        //{ path: 'info', component: InformationComponent, canActivate: [ConnectionGuard] },    
         { path: 'connect', component: ConnectComponent },
         {
-          path: 'info', component: InformationComponent, children:
+          path: 'info', component: InformationComponent, canActivate: [ConnectionGuard], children:
             [
               { path: '', component: PeriodComponent },
-              { path: 'test', component: TestComponent}
+              { path: 'test', component: TestComponent }
             ]
         },
       ]
