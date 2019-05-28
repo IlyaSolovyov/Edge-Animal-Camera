@@ -6,4 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./actions.component.scss']
 })
 export class ActionsComponent {
+
+  links = [
+    { path: "", label: "Get encounters during specified period" },
+    { path: "test", label: "Perform test detection" }
+  ];
+
+  activeLink = this.links[0];
+
+  constructor() {
+
+  }
 }

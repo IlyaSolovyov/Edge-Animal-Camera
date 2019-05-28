@@ -1,17 +1,18 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from '../shared/modules/material.module';
 import { CameraRoutingModule } from './camera-routing.module';
+import { ActionsComponent } from './components/actions/actions.component';
 import { CameraComponent } from './components/camera/camera.component';
 import { ConnectComponent } from './components/connect/connect.component';
-import { InformationComponent } from './components/information/information.component';
-import { MaterialModule } from '../shared/modules/material.module';
-import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
 import { DeviceComponent } from './components/device/device.component';
-
-import { ActionsComponent } from './components/actions/actions.component';
-import { RecentComponent } from './components/recent/recent.component';
 import { EncounterListComponent } from './components/encounter-list/encounter-list.component';
+import { InformationComponent } from './components/information/information.component';
+import { PeriodComponent } from './components/period/period.component';
+import { RecentComponent } from './components/recent/recent.component';
+import { TestComponent } from './components/test/test.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { EncounterListComponent } from './components/encounter-list/encounter-li
     DeviceComponent,
     RecentComponent,
     ActionsComponent,
-    EncounterListComponent
+    EncounterListComponent,
+    PeriodComponent,
+    TestComponent
   ],
   imports: [
     CommonModule,

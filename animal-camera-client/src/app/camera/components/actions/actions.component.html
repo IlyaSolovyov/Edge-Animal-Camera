@@ -1,3 +1,15 @@
 <div class="container">
-  Actions component.
+  <nav mat-tab-nav-bar mat-stretch-tabs class="tab-group">
+    <a mat-tab-link
+       *ngFor="let link of links"
+       [routerLink]="link.path"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      {{link.label}}
+    </a>
+  </nav>
+  <div class="router-container">
+    <router-outlet></router-outlet>
+  </div>
+
 </div>
