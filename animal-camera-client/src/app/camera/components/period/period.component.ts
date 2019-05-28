@@ -26,4 +26,12 @@ export class PeriodComponent {
       endDateControl: new FormControl(this.defaultEndDate),
     });
   }
+
+  fetch() {
+    let startDate: Date = this.periodForm.get('startDateControl').value;
+    let endDate: Date = this.periodForm.get('endDateControl').value;
+
+    console.log(startDate.toISOString());
+    console.log(endDate.toISOString());
+  }
 }

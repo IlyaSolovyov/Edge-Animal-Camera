@@ -67,7 +67,7 @@ export class ConnectComponent implements OnInit {
     let port: string = this.connectForm.get('portControl').value;
     let combinedAddress = address + ":" + port;
 
-    let deviceEntity: Device = new Device("Raspberry Pi Camera V2", "assets/images/raspberry_pi_camera_v2.jpg", ["Test class 1", "Test class 2"]);
+    let deviceEntity: Device = new Device("Raspberry Pi Camera V2", "raspberry_pi_camera_v2.jpg", ["Test class 1", "Test class 2"]);
     this.connectionStore.updateConnectionMode(combinedAddress, deviceEntity, ConnectionMode.DemoMode);
     this.router.navigate(['/camera/info']);
   }
