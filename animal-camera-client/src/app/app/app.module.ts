@@ -12,6 +12,7 @@ import { DetectionService } from '../shared/services/detection.service';
 import { ConnectionStore } from '../shared/stores/connection.store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AppComponent } from './components/app/app.component';
     FormsModule,
     MaterialModule,
     AppRoutingModule,
-    CameraModule
+    CameraModule,
+    MatMomentDateModule
   ],
   providers: [
     ConnectionService,
