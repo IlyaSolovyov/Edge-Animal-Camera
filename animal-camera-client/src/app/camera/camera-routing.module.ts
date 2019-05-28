@@ -14,10 +14,10 @@ const routes: Routes = [
       [
         { path: '', redirectTo: 'info', pathMatch: 'full' },
         { path: 'connect', component: ConnectComponent },
-        {
-          path: 'info', component: InformationComponent, canActivate: [ConnectionGuard], children:
+        { path: 'info', component: InformationComponent, canActivate: [ConnectionGuard], children:
             [
-              { path: '', component: PeriodComponent },
+              { path: '', redirectTo: 'encounters', pathMatch: 'full' },
+              { path: 'encounters', component: PeriodComponent },
               { path: 'test', component: TestComponent }
             ]
         },
