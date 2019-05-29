@@ -17,6 +17,6 @@ export class DetectionService {
   }
 
   getAllEncounters(address: string): Observable<Encounter[]> {
-    return this.http.get<Encounter[]>('http://' + address + '/encounters/');
+    return this.http.get<Encounter[]>('http://' + address + '/encounters');
   }
 }
