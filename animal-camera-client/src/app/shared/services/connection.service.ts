@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '../../../../node_modules/@angular/common/http';
-import { map } from 'rxjs/operators';
+import { HttpClient } from '../../../../node_modules/@angular/common/http';
 import { Device } from '../models/device';
 
 @Injectable()

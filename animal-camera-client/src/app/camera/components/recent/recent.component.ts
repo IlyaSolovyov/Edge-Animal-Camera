@@ -4,6 +4,7 @@ import { Encounter } from '../../../shared/models/encounter';
 import { DetectionService } from '../../../shared/services/detection.service';
 import { ConnectionStore } from '../../../shared/stores/connection.store';
 import { ConnectionMode } from 'src/app/shared/models/connection-mode';
+import { DemoService } from 'src/app/shared/services/demo.service';
 
 @Component({
   selector: 'camera-recent',
@@ -14,7 +15,7 @@ export class RecentComponent implements OnInit {
 
   encounters: Encounter[];
 
-  constructor(private detectionService: DetectionService, private connectionStore: ConnectionStore) { }
+  constructor(private detectionService: DetectionService, private connectionStore: ConnectionStore, private demoService: DemoService) { }
 
   ngOnInit(): void {
     this.connectionStore.connectionMode.subscribe(mode => {
@@ -41,26 +42,9 @@ export class RecentComponent implements OnInit {
           });
         });
       } else if (mode == ConnectionMode.DemoMode) {
-        this.encounters = this.getDemoEncounters();
+        this.encounters = this.demoService.getRecentDemoEncounters();
       }
     });
   }
 
-  getDemoEncounters(): Encounter[] {
-    let testDetection1: Detection = new Detection(1, "Test Class 1", 1);
-    let testDetection2: Detection = new Detection(2, "Test Class 2", 3);
-    let testDetection3: Detection = new Detection(3, "Test Class 1", 2);
-    let testDetection4: Detection = new Detection(4, "Test Class 2", 2);
-    let testDetection5: Detection = new Detection(5, "Test Class 1", 3);
-    let testDetection6: Detection = new Detection(6, "Test Class 2", 1);
-    let testDetection7: Detection = new Detection(7, "Test Class 1", 3);
-
-    let testEncounter1: Encounter = new Encounter(1, new Date(), [testDetection1, testDetection2]);
-    let testEncounter2: Encounter = new Encounter(2, new Date(), [testDetection3, testDetection4]);
-    let testEncounter3: Encounter = new Encounter(3, new Date(), [testDetection5]);
-    let testEncounter4: Encounter = new Encounter(4, new Date(), [testDetection6]);
-    let testEncounter5: Encounter = new Encounter(5, new Date(), [testDetection7]);
-
-    return [testEncounter1, testEncounter2, testEncounter3, testEncounter4, testEncounter5];
-  }
 }

@@ -13,6 +13,7 @@ import { ConnectionStore } from '../shared/stores/connection.store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import { DemoService } from '../shared/services/demo.service';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MatMomentDateModule } from "@angular/material-moment-adapter";
   providers: [
     ConnectionService,
     DetectionService,
+    DemoService,
     ConnectionStore,
     ConnectionGuard,
     CookieService 
