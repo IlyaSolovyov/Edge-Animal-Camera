@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class ActionsComponent {
 
   links = [
-    { path: "encounters", label: "Get encounters during specified period" },
+    { path: "encounters", label: "Download encounter log" },
     { path: "test", label: "Perform test detection" }
   ];
 

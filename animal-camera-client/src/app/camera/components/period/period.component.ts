@@ -24,6 +24,8 @@ export class PeriodComponent {
 
   encounters: Encounter[] = [];
 
+  fetchEverything: boolean = false;
+
   constructor(private detectionService: DetectionService, private connectionStore: ConnectionStore, private demoService: DemoService) { }
 
   ngOnInit(): void {
@@ -32,8 +34,8 @@ export class PeriodComponent {
     this.defaultEndDate = moment().set('hour', 23).set('minute', 59).set('second', 59).set('millisecond', 999).toDate();
 
     this.periodForm = new FormGroup({
-      startDateControl: new FormControl(this.defaultStartDate),
-      endDateControl: new FormControl(this.defaultEndDate),
+      startDateControl: new FormControl({ value: this.defaultStartDate, disabled: this.fetchEverything}),
+      endDateControl: new FormControl({ value: this.defaultEndDate, disabled: this.fetchEverything })
     });
   }
 
@@ -85,6 +87,18 @@ export class PeriodComponent {
     a.setAttribute('href', 'data:application/json;charset=utf-u,' + encodeURIComponent(JSON.stringify(this.encounters)));
     a.setAttribute('download', filename);
     a.click();
+  }
+
+  toggleFetchMode() {
+    this.fetchEverything = !this.fetchEverything;
+
+    if (this.fetchEverything) {
+      this.periodForm.get('startDateControl').disable();
+      this.periodForm.get('endDateControl').disable();
+    } else {
+      this.periodForm.get('startDateControl').enable();
+      this.periodForm.get('endDateControl').enable();
+    } 
   }
 
 }
