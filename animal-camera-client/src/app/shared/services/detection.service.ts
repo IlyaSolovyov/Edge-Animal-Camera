@@ -11,4 +11,12 @@ export class DetectionService {
   getRecentEncounters(address: string): Observable<Encounter[]> {
     return this.http.get<Encounter[]>('http://' + address + '/encounters/recent');
   }
+
+  getEncountersDuringPeriod(address:string, startDateIso: string, endDateIso:string): Observable<Encounter[]> {
+    return this.http.get<Encounter[]>('http://' + address + '/encounters/' + startDateIso + "/" + endDateIso);
+  }
+
+  getAllEncounters(address: string): Observable<Encounter[]> {
+    return this.http.get<Encounter[]>('http://' + address + '/encounters/');
+  }
 }
