@@ -25,6 +25,7 @@ export class TestComponent {
   displayTable: boolean;
   resultsTitle: string;
   resultEncounter: Encounter[];
+  isLoadingResults: boolean;
 
   constructor(private detectionService: DetectionService, private connectionStore: ConnectionStore, private demoService: DemoService, private sanitizer: DomSanitizer) { }
 
@@ -49,7 +50,7 @@ export class TestComponent {
 
   runDetection() {
     this.displayResults = false;
-
+    this.isLoadingResults = true;
     this.connectionStore.connectionMode.subscribe(mode => {
       if (mode == ConnectionMode.Connected) {
 
@@ -72,11 +73,14 @@ export class TestComponent {
         this.resultImage = this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,'
           + resultEncounter.resultImageBase64);
       }
-
+      this.isLoadingResults = false;
       this.displayResults = true;
+
     } else {
       this.displayTable = false;
       this.resultsTitle = "No objects found on image " + this.filename;
+
+      this.isLoadingResults = false;
       this.displayResults = true;
     }
   }
