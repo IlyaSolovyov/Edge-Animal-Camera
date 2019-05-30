@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="header-container">
+    <h2>Welcome to your Animal Camera prototype.</h2>
+    <h3>Please enter your camera's address.</h3>
+    <h5>For local environment, you can use hostname "raspberrypi". Default port is 5000.</h5>
+  </div>
+  <div class="form-container">
+    <form [formGroup]="connectForm">
+      <div class="address-fields">
+        <mat-form-field>
+          <input matInput placeholder="IP Address" formControlName="addressControl">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Port" formControlName="portControl">
+        </mat-form-field>
+      </div>
+      <div class="submit-buttons">
+        <button type="button" mat-raised-button color="primary" (click)="connect()">Connect</button>
+        <button type="button" mat-raised-button color="warn" (click)="launchDemo()">Launch demo mode</button>
+      </div>
+    </form>
+  </div>
+</div>

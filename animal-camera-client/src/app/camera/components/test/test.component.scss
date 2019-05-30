@@ -1,0 +1,47 @@
+.container {
+  position: relative;
+}
+
+.detection-form{
+  display:flex;
+  flex-direction: row;
+  align-items:baseline;
+}
+
+.table-container{
+  margin-bottom:24px;
+}
+
+.image-container{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.file-input{
+  margin-right:16px;
+  height:36px;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  padding-left:10px;
+}
+
+.loading-container {
+  width: 100%;
+  height:50px;
+}
+
+.data-loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

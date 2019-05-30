@@ -1,0 +1,7 @@
+{
+    "appService.zipIgnorePattern": [
+        ".vscode{,/**}"
+    ],
+    "appService.deploySubpath": "dist\\animal-camera-client",
+    "appService.defaultWebAppToDeploy": "/subscriptions/e712b061-1354-4426-ba1e-693ac2a1ead9/resourceGroups/TensorflowResourceGroup/providers/Microsoft.Web/sites/bear-detection-app"
+}

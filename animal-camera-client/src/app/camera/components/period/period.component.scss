@@ -1,0 +1,25 @@
+mat-form-field{
+  margin-right:16px;
+}
+
+.form-container{
+  mat-slide-toggle{
+    margin-right:16px;
+  }
+}
+
+.json-button-container{
+  display:flex;
+  justify-content:flex-end;
+}
+
+.table-container{
+  margin-bottom:16px;
+}
+
+.period-form{
+  display:flex;
+  flex-direction:row;
+  align-items:baseline;
+  justify-content:space-between;
+}

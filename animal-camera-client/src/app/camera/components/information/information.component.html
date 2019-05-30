@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="camera-container">
+    <camera-device [device]="connectionStore.device | async">
+
+    </camera-device>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="feed-container">
+    <camera-recent>
+
+    </camera-recent>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="actions-container">
+    <camera-actions>
+
+    </camera-actions>
+  </div>
+</div>
