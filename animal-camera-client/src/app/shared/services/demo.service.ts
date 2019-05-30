@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 import { Detection } from '../models/detection';
 import { Encounter } from '../models/encounter';
+import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Injectable()
 export class DemoService {
@@ -78,5 +80,16 @@ export class DemoService {
     var hour = startDate.getHours() + Math.random() * (endDate.getHours() - startDate.getHours()) | 0;
     date.setHours(hour);
     return date;
+  }
+
+  getDemoEncounter(): Observable<Encounter> {
+
+    let detection1: Detection = new Detection(1, "ursus americanus", 1);
+    let detection2: Detection = new Detection(2, "ursus arctos", 1);
+
+    let detections: Detection[] = [detection1, detection2];
+    let demoEncounter: Encounter = new Encounter(1, new Date(), detections, "assets/images/demo-detection.png");;
+
+    return of(demoEncounter).pipe(delay(1000));
   }
 }

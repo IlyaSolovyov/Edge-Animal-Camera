@@ -1,3 +1,19 @@
 <div class="container">
-  Test component.
+  <div class="form-container">
+    <form class="detection-form" [formGroup]="detectionForm">
+      <div>
+        <input type="file" (change)="onFileChange($event)" formControlName="imageControl">
+      </div>
+      <div>
+        <button type="button" mat-raised-button color="primary" (click)="runDetection()">Run object detection</button>
+      </div>
+    </form>
+  </div>
+  <div class="results-container" *ngIf="displayResults">
+    <h2>{{resultTitle}}</h2>
+    <div class="table-container">
+      <camera-encounter-list [(encounters)]="resultEncounter"></camera-encounter-list>
+    </div>
+    <img [src] ="resultImage"/>
+  </div>
 </div>

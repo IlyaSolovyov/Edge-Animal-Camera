@@ -4,10 +4,12 @@ export class Encounter {
   id: number;
   timestamp: Date;
   detections: Detection[];
+  resultImageBase64: string;
 
-  constructor(id: number, timestamp: Date, detections: Detection[]) {
+  constructor(id: number, timestamp: Date, detections: Detection[], resultImageBase64: string = "") {
     this.id = id;
     this.timestamp = timestamp;
     this.detections = detections;
+    this.resultImageBase64 = resultImageBase64;
   }
 }
