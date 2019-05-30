@@ -1,0 +1,25 @@
+.detection-form{
+  display:flex;
+  flex-direction: row;
+  align-items:baseline;
+}
+
+.table-container{
+  margin-bottom:24px;
+}
+
+.image-container{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.file-input{
+  margin-right:16px;
+  height:36px;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  padding-left:10px;
+}

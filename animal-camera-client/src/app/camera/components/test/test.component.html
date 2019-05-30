@@ -1,7 +1,7 @@
 <div class="container">
   <div class="form-container">
     <form class="detection-form" [formGroup]="detectionForm">
-      <div>
+      <div class="file-input mat-elevation-z2">
         <input type="file" (change)="onFileChange($event)" formControlName="imageControl">
       </div>
       <div>
@@ -14,6 +14,8 @@
     <div class="table-container">
       <camera-encounter-list [(encounters)]="resultEncounter"></camera-encounter-list>
     </div>
-    <img [src] ="resultImage"/>
+    <div class="image-container mat-elevation-z2">
+      <img [src] ="resultImage"/>
+    </div>
   </div>
 </div>
